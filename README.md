@@ -23,7 +23,7 @@ ftpurl   ftp.bongbong.net/public_html/test/
 #
 # FTP client files to upload (max 10)
 #
-ftpdir  /var/bong/
+ftpdir  /var/gco/
 ftpfile roofstatus.html
 ftpfile list.html
 ftpfile title.html
