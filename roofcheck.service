@@ -1,0 +1,23 @@
+[Unit]
+Description=Observatory Roof Monitor
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/roofcheck
+
+# What signal to send to stop the service (SIGTERM is default, but explicit is good)
+KillSignal=SIGTERM
+
+# What to do if systemctl reload is called
+ExecReload=/bin/kill -HUP $MAINPID
+
+# Restart behavior
+Restart=on-failure
+RestartSec=5s
+
+# Give the app 30 seconds to clean up after SIGTERM before force-killing (SIGKILL)
+TimeoutStopSec=30s
+
+[Install]
+WantedBy=multi-user.target
